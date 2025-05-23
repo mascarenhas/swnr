@@ -347,18 +347,14 @@
 }
 
 /* Actor Sheet Header - Level and XP field width adjustments */
-.swnr .sheet-header .resources.grid-5col > .actor-header-level-container {
-  flex-grow: 0.5; /* Attempt to make it half the 'standard' column width */
-  flex-shrink: 1;
-  flex-basis: 0; /* Allow it to shrink or grow from a zero basis based on flex-grow */
-  min-width: 60px; /* Add a minimum width to prevent it from becoming too small */
+.swnr .sheet-header .resources .actor-header-level-container .resource-content {
+  max-width: 60px; /* Makes the content area of Level field narrower */
+  margin-left: auto; /* Centers the content within its grid cell */
+  margin-right: auto; /* Centers the content within its grid cell */
 }
 
-.swnr .sheet-header .resources.grid-5col > .actor-header-xp-container {
-  flex-grow: 2;   /* Attempt to make it double the 'standard' column width */
-  flex-shrink: 1;
-  flex-basis: 0;
-  min-width: 100px; /* Add a minimum width for XP field */
+.swnr .sheet-header .resources .actor-header-xp-container {
+  grid-column: span 2; /* Makes the XP field container span 2 grid columns */
 }
 
 .swnr .sheet-header .header-fields {

@@ -98,7 +98,7 @@
         {{/if}}
       </div>
       
-      <div class="resource flex-group-center actor-header-level-container"><!-- Level / HD -->
+      <div class="resource flex-group-center"><!-- Level / HD -->
         {{#if (eq actor.type 'character')}}
           <div class='resource-content header short flexrow flex-center flex-between'>
             {{formInput systemFields.level.fields.value value=system.level.value localize=true}}
@@ -123,7 +123,7 @@
         {{/if}}
       </div>
 
-      <div class="resource flex-group-center actor-header-xp-container"><!-- XP / Morale -->
+      <div class="resource flex-group-center"><!-- XP / Morale -->
         {{#if (eq actor.type 'character')}}
           {{!-- Not using form group on this one right now due to level mix in --}}
           {{!-- {{formGroup systemFields.level value=system.level localize=true widget=headerWidget}} --}}
