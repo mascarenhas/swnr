@@ -231,7 +231,7 @@
                 />
               </a>
             </div>
-            <div><a data-action="toggle-description" data-item-id="{{item._id}}">{{item.name}}</a></div>
+            <div><a data-action="toggle-description" data-item-id="{{item._id}}" data-description-id="desc-combatfav-{{item._id}}">{{item.name}}</a></div>
           </div>
           <div class="item-qty"> {{ item.system.quantity }} </div>
           <div class='item-controls-small'>
@@ -245,7 +245,7 @@
           </div>
         </li>
         <li class='item-description-row flexrow' data-item-id='{{item._id}}'>
-          <div class='item-description' id='item-description-{{item._id}}' style='display: none;'>
+          <div class='item-description' id='desc-combatfav-{{item._id}}' style='display: none;'>
             {{{item.system.description}}}
           </div>
         </li>

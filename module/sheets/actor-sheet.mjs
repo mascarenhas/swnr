@@ -838,14 +838,14 @@ export class SWNActorSheet extends SWNBaseSheet {
    */
   static async _onToggleDescription(event, target) {
     event.preventDefault();
-    const itemId = target.dataset.itemId;
-    if (!itemId) {
-      console.warn("SWNR | toggle-description action called without item-id");
+    const descriptionId = target.dataset.descriptionId; // Use the new attribute
+    if (!descriptionId) {
+      console.warn("SWNR | toggle-description action called without data-description-id");
       return;
     }
 
-    const descriptionElement = this.element.querySelector(`#item-description-${itemId}`);
-
+    const descriptionElement = this.element.querySelector(`#${descriptionId}`); // Query by the full ID
+    
     if (descriptionElement) {
       if (descriptionElement.style.display === "none" || !descriptionElement.style.display) {
         descriptionElement.style.display = "block"; 
@@ -853,7 +853,7 @@ export class SWNActorSheet extends SWNBaseSheet {
         descriptionElement.style.display = "none";
       }
     } else {
-      console.warn(`SWNR | Description element not found for item ID: ${itemId}`);
+      console.warn(`SWNR | Description element not found for ID: ${descriptionId}`);
     }
   }
 }
