@@ -32,7 +32,7 @@
           <img src='{{item.img}}' title='{{item.name}}' width='24' height='24' />
         </a>
       </div>
-      <div>{{item.name}}</div>
+      <div><a data-action="toggle-description" data-item-id="{{item._id}}">{{item.name}}</a></div>
     </div>
     <div class="item-dmg item-prop">{{item.system.damage}}</div>
     <div class='item-controls-small'>
@@ -44,6 +44,11 @@
       <a class='item-control item-edit' title='{{localize "DOCUMENT.Update" type=' Item'}}' data-action='viewDoc'>
         <i class='fas fa-edit'></i>
       </a>
+    </div>
+  </li>
+  <li class='item-description-row flexrow' data-item-id='{{item._id}}'>
+    <div class='item-description' id='item-description-{{item._id}}' style='display: none;'>
+      {{{item.system.description}}}
     </div>
   </li>
   {{/each}}

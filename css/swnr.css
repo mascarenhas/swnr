@@ -74,6 +74,12 @@
     width: calc(100% - 35px); /* Adjust width to account for the margin */
 }
 
+/* Adjust description indentation for Readied Armor list (where checkbox replaces image) */
+.swnr .readied-armor-list > .item-description-row > .item-description {
+  margin-left: 10px; /* Smaller margin for lists without item image before name */
+  width: calc(100% - 10px); /* Correspondingly adjust width */
+}
+
 /* For powers, the structure might be different, adjust if they don't have an image or similar offset */
 /* Example: if powers list items don't have an image before the name */
 /* .powers-list > .item-description-row > .item-description { */
