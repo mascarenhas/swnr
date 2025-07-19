@@ -1,6 +1,6 @@
 <ol class='items-list'>
-  <li class='flex flexrow items-header'>
-    <div class='item-name'>
+  <li class='grid grid-4col items-header'>
+    <div class='grid-span-2 item-name'>
       {{#if (eq actorType 'character')}}
       {{localize 'swnr.item.locationReadied'}}
       {{/if}}
@@ -8,6 +8,9 @@
     </div>
     <div class="flex-group-center item-prop">
       {{localize "swnr.weapon.damage"}}
+    </div>
+    <div class="flex-group-center item-prop">
+      {{localize "swnr.item.ammo.short"}}
     </div>
     <div class='item-controls-small'>
       {{#if @root.editable}}
@@ -23,7 +26,6 @@
         </a>
       {{/if}}
     </div>
-    <div class="flex-group-right item-controls-small"></div>
   </li>
 
   <!-- ITEM ROWS (Uses Matching Grid Layout) -->
