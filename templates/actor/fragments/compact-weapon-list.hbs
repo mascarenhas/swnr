@@ -63,5 +63,10 @@
         </a>
       </div>
     </li>
+    <li class='item-description-row flexrow' data-item-id='{{item._id}}'>
+      <div class='item-description' id='desc-readiedwpn-{{item._id}}' style='display: none;'>
+        {{{item.system.description}}}
+      </div>
+    </li>
   {{/each}}
 </ol>
