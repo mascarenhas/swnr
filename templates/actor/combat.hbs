@@ -192,7 +192,11 @@
       </a>
     </div> --}}
 
-  </div>    
+  </div>
+
+      {{!-- Readied Weapons --}}
+      {{> "systems/swnr/templates/actor/fragments/compact-weapon-list.hbs" itemList=actor.system.readiedWeapons actorType=actor.type }}
+
       {{else}}
       <button class="skill-load-button" type="button" data-action="loadSkills">
         {{localize 'swnr.sheet.loadSkills'}}
@@ -252,9 +256,6 @@
       {{/each}}
       </ol>
       {{/if}}
-
-      {{!-- Readied Weapons --}}
-      {{> "systems/swnr/templates/actor/fragments/compact-weapon-list.hbs" itemList=actor.system.readiedWeapons actorType=actor.type }}
 
       {{!-- Readied Armor --}}
       {{> "systems/swnr/templates/actor/fragments/compact-armor-list.hbs" itemList=actor.system.readiedArmor actorType=actor.type }}
