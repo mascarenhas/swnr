@@ -1,15 +1,15 @@
 <ol class='items-list'>
-  <li class='grid grid-4col items-header'>
-    <div class='grid-span-2 item-name'>
+  <li class='flex flexrow items-header'>
+    <div class='item-name'>
       {{#if (eq actorType 'character')}}
       {{localize 'swnr.item.locationReadied'}}
       {{/if}}
       {{localize 'swnr.sheet.tabs.weapons-short'}}
     </div>
-    <div class="flex-group-center item-prop">
+    <div class="item-prop" style="flex: 0 0 80px; text-align: center;">
       {{localize "swnr.weapon.damage"}}
     </div>
-    <div class="flex-group-center item-prop">
+    <div class="item-prop" style="flex: 0 0 60px; text-align: center;">
       {{localize "swnr.item.ammo.short"}}
     </div>
     <div class='item-controls-small'>
@@ -28,11 +28,11 @@
     </div>
   </li>
 
-  <!-- ITEM ROWS (Uses Matching Grid Layout) -->
+  <!-- ITEM ROWS (Uses Matching Layout) -->
   {{#each itemList as |item id|}}
-    <li class="item grid grid-4col" data-item-id="{{item._id}}" data-drag="true" data-document-class="Item">
+    <li class="item flexrow flex-group-center" data-item-id="{{item._id}}" data-drag="true" data-document-class="Item">
       <!-- Name Column -->
-      <div class="grid-span-2 flex-group-left item-name">
+      <div class="item-name">
         <div class="item-image">
           <a class="rollable" data-roll-type="item" data-action="roll">
             <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
@@ -42,19 +42,19 @@
       </div>
 
       <!-- Damage Column -->
-      <div class="flex-group-center item-prop">
+      <div class="item-prop" style="flex: 0 0 80px; text-align: center;">
         {{item.system.damage}}
       </div>
 
       <!-- Ammo Column -->
-      <div class="flex-group-center item-prop">
+      <div class="item-prop" style="flex: 0 0 60px; text-align: center;">
         {{#if (and item.system.ammo (ne item.system.ammo.type "none"))}}
           <span>{{item.system.ammo.value}} / {{item.system.ammo.max}}</span>
         {{/if}}
       </div>
 
       <!-- Controls -->
-      <div class="flex-group-right item-controls-small">
+      <div class="item-controls-small">
         {{#if (and (eq item.type "weapon") (ne item.system.ammo.type "none"))}}
           <a class="item-control item-reload" data-action="reload" title="{{localize 'swnr.sheet.reload-item'}}">
             <i class="fas fa-retweet"></i>
