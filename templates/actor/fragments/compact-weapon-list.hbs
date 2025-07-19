@@ -30,10 +30,10 @@
 
   <!-- ITEM ROWS (Uses Matching Layout) -->
   {{#each itemList as |item id|}}
-    <li class="item flexrow flex-group-center" data-item-id="{{item._id}}" data-drag="true" data-document-class="Item">
+    <li class="item flexrow" data-item-id="{{item._id}}" data-drag="true" data-document-class="Item">
       <!-- Name Column -->
-      <div class="item-name">
-        <div class="item-image">
+      <div class="item-name" style="display: flex; align-items: center;">
+        <div class="item-image" style="margin-right: 0.5em;">
           <a class="rollable" data-roll-type="item" data-action="roll">
             <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
           </a>
