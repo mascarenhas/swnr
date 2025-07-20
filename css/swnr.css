@@ -32,71 +32,6 @@
   cursor: pointer;
 }
 
-/* Styles for expandable item descriptions */
-[data-action="toggle-description"] {
-  cursor: pointer;
-  /* Consider a specific color for the link if needed */
-  /* color: var(--active-font-color); */ /* Example */
-}
-
-[data-action="toggle-description"]:hover {
-  text-decoration: underline;
-  color: var(--active-font-color); /* Using variable defined in .swnr scope */
-}
-
-.item-description-row {
-  list-style-type: none; /* Remove bullet points for li elements */
-  padding: 0; /* Reset padding */
-  margin: 0; /* Reset margin */
-  /* Ensure it doesn't have the bottom border from the item above */
-  border-bottom: none; 
-}
-
-/* The container for the description text itself */
-.item-description {
-  padding: 8px;
-  margin-top: 5px;   /* Space between the item name and the description box */
-  margin-bottom: 10px; /* Space after the description box */
-  background-color: rgba(0, 0, 0, 0.03); /* Subtle background, should work on light/dark */
-  border-left: 3px solid var(--swnr-c-beige); /* Accent border, uses theme variable */
-  border-radius: 2px; /* Slightly rounded corners */
-  clear: both; /* Just in case of floats, though flex is mainly used */
-  width: 100%;
-  box-sizing: border-box; /* Ensures padding is included in the width */
-  font-size: 13px; /* Match item name font size */
-  line-height: 1.4; /* Improve readability */
-  color: var(--swnr-c-tan); /* Match other item text color */
-}
-
-/* Specific padding for descriptions within standard item lists to align with names */
-.items-list > .item-description-row > .item-description {
-    margin-left: 35px; /* Align with item name text (after 30px image + 5px margin) */
-    width: calc(100% - 35px); /* Adjust width to account for the margin */
-}
-
-/* Adjust description indentation for Readied Armor list (where checkbox replaces image) */
-.swnr .readied-armor-list > .item-description-row > .item-description {
-  margin-left: 10px; /* Smaller margin for lists without item image before name */
-  width: calc(100% - 10px); /* Correspondingly adjust width */
-}
-
-/* For powers, the structure might be different, adjust if they don't have an image or similar offset */
-/* Example: if powers list items don't have an image before the name */
-/* .powers-list > .item-description-row > .item-description { */
-  /* margin-left: 5px; */ /* Or some other suitable value */
-  /* width: calc(100% - 5px); */
-/* } */
-
-/* Ensure the description row itself doesn't pick up unwanted borders from .item styles */
-.swnr .items-list .item-description-row {
-  border-bottom: none; /* Explicitly remove border for these rows */
-}
-
-/* If the description is the very last element in an items-list, remove its bottom margin */
-.swnr .items-list .item-description-row:last-child > .item-description {
-  margin-bottom: 0;
-}
-
 .grid,
 .grid-2col {
   display: grid;
@@ -303,7 +238,6 @@
 .swnr .sheet-header.column {
   flex-direction: column;
 }
-
 .swnr .sheet-header .header-fields {
   flex: 1;
 }
@@ -813,6 +747,47 @@
 .swnr .asset-prop .asset-damage {
   flex: 0 1 40px;
   padding: 0 8px;
+}
+.swnr [data-action=toggle-description] {
+  cursor: pointer;
+}
+.swnr [data-action=toggle-description]:hover {
+  text-decoration: underline;
+  color: var(--active-font-color);
+}
+.swnr .item-description-row {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  border-bottom: none;
+}
+.swnr .item-description {
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-left: 3px solid var(--swnr-c-beige);
+  border-radius: 2px;
+  clear: both;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--swnr-c-tan);
+}
+.swnr .items-list > .item-description-row > .item-description {
+  margin-left: 35px;
+  width: calc(100% - 35px);
+}
+.swnr .readied-armor-list > .item-description-row > .item-description {
+  margin-left: 10px;
+  width: calc(100% - 10px);
+}
+.swnr .items-list .item-description-row {
+  border-bottom: none;
+}
+.swnr .items-list .item-description-row:last-child > .item-description {
+  margin-bottom: 0;
 }
 .swnr .effects-header {
   height: 28px;
