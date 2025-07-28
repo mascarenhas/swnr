@@ -285,3 +285,63 @@
     padding: 0 8px;
   }
 }
+
+// -----------------------------------------
+// Expandable Item Descriptions
+// -----------------------------------------
+
+// Toggle button for expandable descriptions
+[data-action="toggle-description"] {
+  cursor: pointer;
+  
+  &:hover {
+    text-decoration: underline;
+    color: var(--active-font-color);
+  }
+}
+
+// Container row for the description
+.item-description-row {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  border-bottom: none; // Ensure it doesn't inherit item borders
+}
+
+// The description content box
+.item-description {
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-left: 3px solid var(--swnr-c-beige);
+  border-radius: 2px;
+  clear: both;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--swnr-c-tan);
+}
+
+// Specific positioning for different list types
+.items-list > .item-description-row > .item-description {
+  margin-left: 35px; // Align with item name (after 30px image + 5px margin)
+  width: calc(100% - 35px);
+}
+
+// Special case for readied armor list (checkbox instead of image)
+.readied-armor-list > .item-description-row > .item-description {
+  margin-left: 10px;
+  width: calc(100% - 10px);
+}
+
+// Ensure description rows don't pick up unwanted borders
+.items-list .item-description-row {
+  border-bottom: none;
+}
+
+// Remove bottom margin if description is the last element in a list
+.items-list .item-description-row:last-child > .item-description {
+  margin-bottom: 0;
+}

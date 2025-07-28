@@ -84,8 +84,7 @@
                 />
               </a>
             </div>
-            <div>
-              {{item.name}}
+            <div><a data-action="toggle-description" data-item-id="{{item._id}}" data-description-id="desc-gear-{{../type}}-{{item._id}}">{{item.name}}</a>
               {{#if (eq item.type "armor")}}
                 {{#if (ne item.system.soak.max 0)}}
                   ({{item.system.soak.value}}/{{item.system.soak.max}})
@@ -159,6 +158,11 @@
                 <i class="fas fa-trash"></i>
               </a>
             {{/if}}
+          </div>
+        </li>
+        <li class="item-description-row flexrow" data-item-id="{{item._id}}">
+          <div class="item-description" id="desc-gear-{{../type}}-{{item._id}}" style="display: none;">
+            {{{item.system.description}}}
           </div>
         </li>
       {{/each}}

@@ -34,7 +34,8 @@
               </a>
             </div>
 
-            <div>{{item.name}}
+            <div>
+              <a data-action="toggle-description" data-item-id="{{item._id}}" data-description-id="desc-abilities-{{item._id}}">{{item.name}}</a>
             </div>
           </div>
           <div class='item-controls-small'>
@@ -56,6 +57,13 @@
             {{/if}}
           </div>
         </li>
+        {{#if item.system.description}}
+          <li class="item-description-row" data-item-id="{{item._id}}">
+            <div class="item-description" id="desc-abilities-{{item._id}}" style="display: none;">
+              {{{item.system.description}}}
+            </div>
+          </li>
+        {{/if}}
       {{/each}}
 
     </ol>

@@ -748,6 +748,47 @@
   flex: 0 1 40px;
   padding: 0 8px;
 }
+.swnr [data-action=toggle-description] {
+  cursor: pointer;
+}
+.swnr [data-action=toggle-description]:hover {
+  text-decoration: underline;
+  color: var(--active-font-color);
+}
+.swnr .item-description-row {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  border-bottom: none;
+}
+.swnr .item-description {
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-left: 3px solid var(--swnr-c-beige);
+  border-radius: 2px;
+  clear: both;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--swnr-c-tan);
+}
+.swnr .items-list > .item-description-row > .item-description {
+  margin-left: 35px;
+  width: calc(100% - 35px);
+}
+.swnr .readied-armor-list > .item-description-row > .item-description {
+  margin-left: 10px;
+  width: calc(100% - 10px);
+}
+.swnr .items-list .item-description-row {
+  border-bottom: none;
+}
+.swnr .items-list .item-description-row:last-child > .item-description {
+  margin-bottom: 0;
+}
 .swnr .effects-header {
   height: 28px;
   margin: 2px 0;
