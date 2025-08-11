@@ -192,7 +192,11 @@
       </a>
     </div> --}}
 
-  </div>    
+  </div>
+
+      {{!-- Readied Weapons --}}
+      {{> "systems/swnr/templates/actor/fragments/compact-weapon-list.hbs" itemList=actor.system.readiedWeapons actorType=actor.type }}
+
       {{else}}
       <button class="skill-load-button" type="button" data-action="loadSkills">
         {{localize 'swnr.sheet.loadSkills'}}
@@ -231,7 +235,7 @@
                 />
               </a>
             </div>
-            <div>{{item.name}}</div>
+            <div><a data-action="toggle-description" data-item-id="{{item._id}}" data-description-id="desc-combatfav-{{item._id}}">{{item.name}}</a></div>
           </div>
           <div class="item-qty"> {{ item.system.quantity }} </div>
           <div class='item-controls-small'>
@@ -244,12 +248,14 @@
             </a>
           </div>
         </li>
+        <li class='item-description-row flexrow' data-item-id='{{item._id}}'>
+          <div class='item-description' id='desc-combatfav-{{item._id}}' style='display: none;'>
+            {{{item.system.description}}}
+          </div>
+        </li>
       {{/each}}
       </ol>
       {{/if}}
-
-      {{!-- Readied Weapons --}}
-      {{> "systems/swnr/templates/actor/fragments/compact-weapon-list.hbs" itemList=actor.system.readiedWeapons actorType=actor.type }}
 
       {{!-- Readied Armor --}}
       {{> "systems/swnr/templates/actor/fragments/compact-armor-list.hbs" itemList=actor.system.readiedArmor actorType=actor.type }}

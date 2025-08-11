@@ -1,4 +1,4 @@
-<ol class='items-list'>
+<ol class='items-list readied-armor-list'>
   <li class='flex flexrow items-header'>
     <div class='item-name'>
       {{#if (eq actorType 'character')}}
@@ -36,7 +36,7 @@
   <li data-item-id="{{item.id}}" data-document-class='Item' class="item flexrow flex-group-center">
     <div class="item-name">
       <input type="checkbox" data-action="toggleArmor" data-item-id="{{item.id}}" {{#if item.system.use}}checked{{/if}}>
-      {{item.name}}
+      <a data-action="toggle-description" data-item-id="{{item._id}}" data-description-id="desc-readiedarmor-{{item._id}}">{{item.name}}</a>
     </div>
     <div class="item-qty item-prop">
       {{item.system.ac}}
@@ -51,6 +51,11 @@
       <a class='item-control item-edit' title='{{localize "DOCUMENT.Update" type=' Item'}}' data-action='viewDoc'>
         <i class='fas fa-edit'></i>
       </a>
+    </div>
+  </li>
+  <li class='item-description-row flexrow' data-item-id='{{item._id}}'>
+    <div class='item-description' id='desc-readiedarmor-{{item._id}}' style='display: none;'>
+      {{{item.system.description}}}
     </div>
   </li>
   {{/each}}

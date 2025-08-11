@@ -52,6 +52,7 @@ export class SWNActorSheet extends SWNBaseSheet {
       moraleRoll: this._onMoraleRoll,
       resourceCreate: this._onResourceCreate,
       resourceDelete: this._onResourceDelete,
+      'toggle-description': this._onToggleDescription,
     },
     // Custom property that's merged into `this.options`
     dragDrop: [{ dragSelector: '[data-drag]', dropSelector: null }],
@@ -836,6 +837,33 @@ export class SWNActorSheet extends SWNBaseSheet {
     await this.actor.update({ "system.tweak.resourceList": resourceList });
   }
 
+  /**
+   * Toggle item description visibility.
+   * @this SWNActorSheet
+   * @param {PointerEvent} event   The originating click event
+   * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
+   * @protected
+   */
+  static async _onToggleDescription(event, target) {
+    event.preventDefault();
+    const descriptionId = target.dataset.descriptionId; // Use the new attribute
+    if (!descriptionId) {
+      console.warn("SWNR | toggle-description action called without data-description-id");
+      return;
+    }
+
+    const descriptionElement = this.element.querySelector(`#${descriptionId}`); // Query by the full ID
+    
+    if (descriptionElement) {
+      if (descriptionElement.style.display === "none" || !descriptionElement.style.display) {
+        descriptionElement.style.display = "block"; 
+      } else {
+        descriptionElement.style.display = "none";
+      }
+    } else {
+      console.warn(`SWNR | Description element not found for ID: ${descriptionId}`);
+    }
+  }
   static async _onAddUse(event, target) {
     event.preventDefault();
     const itemId = target.dataset.itemId;

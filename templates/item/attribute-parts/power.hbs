@@ -13,5 +13,12 @@
     {{formGroup systemFields.prepared value=system.prepared localize=true}}
     {{formGroup systemFields.effort value=system.effort localize=true}}
     {{formGroup systemFields.source value=system.source localize=true}}
+    {{!-- New Favorite Checkbox --}}
+    <div class="form-group">
+        <label for="system.favorite">Favorite</label> {{!-- Changed this line to plain text --}}
+        <div class="form-fields"> 
+            <input type="checkbox" name="system.favorite" {{checked system.favorite}} style="margin-top: auto; margin-bottom: auto;"/>
+        </div>
+    </div>
   </div>
 </section>
